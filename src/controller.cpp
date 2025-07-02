@@ -6,8 +6,7 @@
 #include <PS2X_lib.h>;
 #include <cstdlib>
 
-#define CONTROLLER_INTERVAL 50
-unsigned long lastControllerRun = 0;
+unsigned long lastRun = 0;
 
 PS2X ps2x;
 
@@ -21,10 +20,10 @@ void controllerSetup() {
 }
 
 void controllerLoop() {
-  if (millis() - lastControllerRun >= CONTROLLER_INTERVAL)
+  if (millis() - lastRun >= CONTROLLER_INTERVAL)
     return;
 
-  lastControllerRun = millis();
+  lastRun = millis();
 
   ps2x.read_gamepad(0, 0);
 

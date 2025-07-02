@@ -5,8 +5,7 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
-#define SERVO_INTERVAL 1
-unsigned long lastServoRun = 0;
+unsigned long lastRun = 0;
 
 Servo servo;
 
@@ -19,7 +18,7 @@ void servoSetup() {
 }
 
 void servoLoop() {
-  if (millis() - lastServoRun >= SERVO_INTERVAL)
+  if (millis() - lastRun >= SERVO_INTERVAL)
     return;
 
   lastServoRun = millis();

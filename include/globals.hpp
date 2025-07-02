@@ -43,3 +43,8 @@ extern struct Vec2 moveDirection;
 
 #define X_JOY_CENTER 127
 #define Y_JOY_CENTER 128
+
+// Loop intervals
+
+#define SERVO_INTERVAL 2
+#define CONTROLLER_INTERVAL 2
