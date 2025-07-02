@@ -3,7 +3,8 @@
 #include "include/controller.hpp"
 // #include "def.h"
 
-void setup() {
+void setup() 
+{
   Serial.begin(115200);
 
   controllerSetup();
@@ -13,7 +14,8 @@ void setup() {
   Serial.println("DONE SETUP!");
 }
 
-void loop() {
+void loop()
+{
   controllerLoop();
   motorLoop();
   servoLoop();
