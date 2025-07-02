@@ -49,8 +49,10 @@
 Servo servo1;
 Servo servo2;
 
-#define servo1_pin 18
-#define servo2_pin 19
+#define SERVO1_PIN1 12
+#define SERVO1_PIN2 13
+#define SERVO2_PIN1 14
+#define SERVO2_PIN2 15
 
 bool servoqt = false;
 bool bamlt = false;
