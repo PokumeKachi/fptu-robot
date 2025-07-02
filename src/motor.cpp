@@ -1,6 +1,9 @@
-#pragma once
+#include "include/motor.hpp"
 
-#include "def.h"
+#include "include/globals.hpp"
+
+#include <Arduino.h>
+#include <cstdlib>
 
 // #include <Adafruit_PWMServoDriver.h>
 // #include <Wire.h>
@@ -15,6 +18,32 @@ void updateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {
   } else {
     ledcWrite(motor_pin, MIN_PWM);
     ledcWrite(motor_pin + 1, MAX_PWM / 100 * speedPercent);
+  }
+}
+
+void wheelInputHandler() {
+  updateMotorSpeed(WHEEL1_PIN, 0, 0);
+  updateMotorSpeed(WHEEL2_PIN, 0, 0);
+
+  int xSpeed = std::abs(moveDirection.x);
+  int ySpeed = std::abs(moveDirection.y);
+
+  if (moveDirection.x < 0) {
+    updateMotorSpeed(WHEEL2_PIN, xSpeed, not WHEEL_REVERSE);
+  }
+
+  if (moveDirection.x > 0) {
+    updateMotorSpeed(WHEEL1_PIN, xSpeed, not WHEEL_REVERSE);
+  }
+
+  if (moveDirection.y < 0) {
+    updateMotorSpeed(WHEEL1_PIN, ySpeed, not WHEEL_REVERSE);
+    updateMotorSpeed(WHEEL2_PIN, ySpeed, not WHEEL_REVERSE);
+  }
+
+  if (moveDirection.y > 0) {
+    updateMotorSpeed(WHEEL1_PIN, ySpeed, WHEEL_REVERSE);
+    updateMotorSpeed(WHEEL2_PIN, ySpeed, WHEEL_REVERSE);
   }
 }
 
@@ -55,4 +84,4 @@ void motorSetup() {
   // updateMotor(PULLEY2_PIN, MOTOR_IDLE);
 }
 
-void motorLoop() {}
+void motorLoop() { wheelInputHandler(); }

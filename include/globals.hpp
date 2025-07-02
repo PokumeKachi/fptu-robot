@@ -1,6 +1,16 @@
 #pragma once
 
-// File nay chua cac hang so co the chinh sua
+struct Vec2 {
+  int x;
+  int y;
+};
+
+// Cac bien toan cuc
+
+extern bool openingGate;
+extern struct Vec2 moveDirection;
+
+// Cac hang so co the chinh sua:
 
 // Motor
 
@@ -15,7 +25,8 @@
 #define MIN_PWM 0
 #define MAX_PWM 255
 
-#define REVERSE true
+#define WHEEL_REVERSE true
+#define PULLEY_REVERSE true
 
 // Servo
 

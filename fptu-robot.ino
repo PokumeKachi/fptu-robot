@@ -1,6 +1,7 @@
-#include "motor.h"
-#include "controller.h"
-#include "servo.h"
+#include "include/motor.hpp"
+#include "include/servo.hpp"
+#include "include/controller.hpp"
+// #include "def.h"
 
 void setup() {
   Serial.begin(115200);
