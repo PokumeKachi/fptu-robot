@@ -5,10 +5,6 @@
 #include <Arduino.h>
 #include <cstdlib>
 
-// #include <Adafruit_PWMServoDriver.h>
-// #include <Wire.h>
-// #include <stdio.h>
-
 // enum MotorState { MOTOR_IDLE, MOTOR_FORWARD, MOTOR_BACKWARD };
 
 void updateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {

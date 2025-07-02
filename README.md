@@ -1,28 +1,39 @@
 # fptu-robot
 
-    ├── Makefile
-    >     File trên chỉ cần cho Linux, không cần để ý.
+└── include
 
-    └── src
-    >     (source code) Mã nguồn
+>     (include directory) Mã nguồn
 
-        ├── controller.h
-        >     File code của PS2
+    ├── globals.hpp
 
-        ├── def.h
-        >     File đựng các thông số như số thứ tự chân IO, tốc độ Analog PWM, ...
+    >     File đựng các biến toàn cục sử dụng bởi mọi file (các trạng thái của robot, đang chạy hay đang thả bóng,...) kèm theo các thông số như số thứ tự chân IO, tốc độ Analog PWM, ...
 
-        ├── globals.h
-        >     File đựng các biến toàn cục sử dụng bởi mọi file (các trạng thái của robot, đang chạy hay đang thả bóng,...)
+    ├── *.hpp
 
-        ├── globals.c
-        >     File khai báo của header biến toàn cục trên
+    > File header của các source file, khai báo tên các hàm cho file chính tái sử dụng
 
-        ├── motor.h
-        >     File đựng logic của motor (bánh xe lăn và trục kéo ròng rọc)
+└── src
 
-        ├── servo.h
-        >     File đựng logic của  servo (thanh chắn bóng)
+>     (source code) Mã nguồn
 
-        └── src.ino
-        >     File code chính của Arduino
+    ├── globals.cpp
+
+    >     File khai báo của header biến toàn cục, thông số trên
+
+    ├── controller.cpp
+
+    >     File đựng logic của tay cầm PS2 (điều khiển và thay đổi các giá trị của các biến toàn cục)
+
+    > Các file dưới quyết định trạng thái của các bộ phận của robot dựa vào giá trị của mỗi biến toàn cục
+
+    ├── motor.cpp
+
+    >     File đựng logic của motor (bánh xe lăn và trục kéo ròng rọc)
+
+    ├── servo.cpp
+
+    >     File đựng logic của  servo (thanh chắn bóng)
+
+└── fptu-robot.ino
+
+>     File code chính của Arduino
