@@ -46,10 +46,10 @@ static void MovementHandler() {
 static void ElevationHandler() {
   if (elevating) {
     UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
-    UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
+    UpdateMotorSpeed(PULLEY2_PIN, 100, not PULLEY_REVERSE);
   } else if (lowering) {
     UpdateMotorSpeed(PULLEY1_PIN, 100, PULLEY_REVERSE);
-    UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
+    UpdateMotorSpeed(PULLEY2_PIN, 100, PULLEY_REVERSE);
   }
 }
 
