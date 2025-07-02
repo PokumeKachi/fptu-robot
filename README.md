@@ -3,13 +3,11 @@
 ```
 fptu-robot
 ├── include
-│   ├── controller.hpp
 │   ├── globals.hpp
-│   ├── motor.hpp
-│   └── servo.hpp
+│   ├── *.hpp (*: controller, servo, motor)
 ├── src
-│   ├── controller.cpp
 │   ├── globals.cpp
+│   ├── controller.cpp
 │   ├── motor.cpp
 │   └── servo.cpp
 └── fptu-robot.ino
