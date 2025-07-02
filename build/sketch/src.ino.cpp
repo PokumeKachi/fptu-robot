@@ -4,6 +4,11 @@
 #include "PS2_controller.h"
 #include "servos.h"
 
+#line 5 "/home/kachi/projects/fptu/fptu-robot/src/src.ino"
+void setup();
+#line 14 "/home/kachi/projects/fptu/fptu-robot/src/src.ino"
+void loop();
+#line 5 "/home/kachi/projects/fptu/fptu-robot/src/src.ino"
 void setup()
 {
   Serial.begin(115200);

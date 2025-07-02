@@ -1,0 +1,82 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/variants/esp32"
+  },
+  {
+    "Sourcefile": "/home/kachi/projects/fptu/fptu-robot/build/sketch/src.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "/home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/libraries/Wire/src"
+  },
+  {
+    "Sourcefile": "/home/kachi/projects/fptu/fptu-robot/build/sketch/src.ino.cpp",
+    "Include": "Adafruit_PWMServoDriver.h",
+    "Includepath": "/home/kachi/Arduino/libraries/Adafruit_PWM_Servo_Driver_Library"
+  },
+  {
+    "Sourcefile": "/home/kachi/projects/fptu/fptu-robot/build/sketch/src.ino.cpp",
+    "Include": "Adafruit_I2CDevice.h",
+    "Includepath": "/home/kachi/Arduino/libraries/Adafruit_BusIO"
+  },
+  {
+    "Sourcefile": "/home/kachi/projects/fptu/fptu-robot/build/sketch/src.ino.cpp",
+    "Include": "PS2X_lib.h",
+    "Includepath": "/home/kachi/Arduino/libraries/PS2X"
+  },
+  {
+    "Sourcefile": "/home/kachi/projects/fptu/fptu-robot/build/sketch/src.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/libraries/Wire/src/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/Adafruit_PWM_Servo_Driver_Library/Adafruit_PWMServoDriver.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/Adafruit_BusIO/Adafruit_BusIO_Register.cpp",
+    "Include": "SPI.h",
+    "Includepath": "/home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/libraries/SPI/src"
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/Adafruit_BusIO/Adafruit_BusIO_Register.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/Adafruit_BusIO/Adafruit_GenericDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/Adafruit_BusIO/Adafruit_SPIDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/PS2X/PS2X_lib.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/libraries/SPI/src/SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
