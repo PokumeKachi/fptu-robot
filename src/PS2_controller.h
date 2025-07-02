@@ -1,5 +1,4 @@
-#include <PS2X_lib.h>
-PS2X ps2x;
+include<PS2X_lib.h> PS2X ps2x;
 
 #define ll int
 
@@ -29,14 +28,7 @@ bool PS2control() {
     ;
   speed = TOP_SPEED;
   if (ps2x.ButtonPressed(PSB_SELECT))
-<<<<<<< Updated upstream
-    driving_mode = !driving mode;
-=======
-    driving_mode =! driving_mode;
- 
-  ll nJoyX = X_JOY_CALIB - ps2x.Analog(PSS_RX);
-  ll nJoyY = Y_JOY_CALIB - (driving_mode ? ps2x.Analog(PSS_LY) :ps2x.Analog(PSS_RY));
->>>>>>> Stashed changes
+    driving_mode = !driving_mode;
 
   ll nJoyX = X_JOY_CALIB - ps2x.Analog(PSS_RX);
   ll nJoyY =
