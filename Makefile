@@ -1,4 +1,4 @@
-PHONY_TARGETS := compile upload monitor
+PHONY_TARGETS := compile git upload monitor
 .PHONY: $(PHONY_TARGETS)
 
 all:
@@ -16,11 +16,8 @@ monitor:
 deps:
 	arduino-cli lib install "Adafruit PWM Servo Driver Library"
 
-update: git
-	git fetch
-	git pull
-
 git:
+	git pull
 	git add .
 	git commit
 	git push
