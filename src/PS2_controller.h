@@ -1,7 +1,7 @@
 #include <PS2X_lib.h>
 PS2X ps2x;
 
-#define int ll
+#define ll int
 
 #define PS2_DAT 12
 #define PS2_CMD 13
