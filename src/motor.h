@@ -1,24 +1,12 @@
-
 #pragma once
+
+#include "def.h"
 
 // #include <Adafruit_PWMServoDriver.h>
 // #include <Wire.h>
 // #include <stdio.h>
 
-enum MotorState { MOTOR_IDLE, MOTOR_FORWARD, MOTOR_BACKWARD };
-
-#define ANALOG_FREQ 5000
-#define ANALOG_RESOLUTION 8
-
-#define WHEEL1_PIN 8
-#define WHEEL2_PIN 10
-#define PULLEY1_PIN 12
-#define PULLEY2_PIN 14
-
-#define MIN_PWM 0
-#define MAX_PWM 255
-
-#define REVERSE true
+// enum MotorState { MOTOR_IDLE, MOTOR_FORWARD, MOTOR_BACKWARD };
 
 void updateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {
   if (not reverse) {

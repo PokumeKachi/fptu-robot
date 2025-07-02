@@ -1,19 +1,13 @@
 #pragma once
 
+#include "def.h"
+
+#define INTERVAL 50
+unsigned long lastRun = 0;
+
 #include <PS2X_lib.h>;
-#include <motor.h>
 
 PS2X ps2x;
-
-#define JOY_THRESHOLD 10
-
-#define PS2_DAT 12
-#define PS2_CMD 13
-#define PS2_CLK 14
-#define PS2_SEL 15
-
-#define X_JOY_CENTER 127
-#define Y_JOY_CENTER 128
 
 // #define STINGLE_HAND_DRIVING 0
 // #define TWO_HAND_DRIVING 1
@@ -28,6 +22,11 @@ void controllerSetup() {
 }
 
 void controllerLoop() {
+  if (millis() - lastRun >= INTERVAL)
+    return;
+
+  lastRun = millis();
+
   ps2x.read_gamepad(0, 0);
 
   if (ps2x.ButtonPressed(PSB_CROSS)) {
