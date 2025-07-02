@@ -8,6 +8,8 @@ struct Vec2 {
 // Cac bien toan cuc
 
 extern bool openingGate;
+extern bool elevating;
+extern bool lowering;
 extern struct Vec2 moveDirection;
 
 // Cac hang so co the chinh sua:

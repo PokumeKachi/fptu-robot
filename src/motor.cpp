@@ -7,7 +7,7 @@
 
 // enum MotorState { MOTOR_IDLE, MOTOR_FORWARD, MOTOR_BACKWARD };
 
-void updateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {
+static void UpdateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {
   if (not reverse) {
     ledcWrite(motor_pin, MAX_PWM / 100 * speedPercent);
     ledcWrite(motor_pin + 1, MIN_PWM);
@@ -17,29 +17,39 @@ void updateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {
   }
 }
 
-void wheelInputHandler() {
-  updateMotorSpeed(WHEEL1_PIN, 0, 0);
-  updateMotorSpeed(WHEEL2_PIN, 0, 0);
+static void MovementHandler() {
+  UpdateMotorSpeed(WHEEL1_PIN, 0, 0);
+  UpdateMotorSpeed(WHEEL2_PIN, 0, 0);
 
   int xSpeed = std::abs(moveDirection.x);
   int ySpeed = std::abs(moveDirection.y);
 
   if (moveDirection.x < 0) {
-    updateMotorSpeed(WHEEL2_PIN, xSpeed, not WHEEL_REVERSE);
+    UpdateMotorSpeed(WHEEL2_PIN, xSpeed, not WHEEL_REVERSE);
   }
 
   if (moveDirection.x > 0) {
-    updateMotorSpeed(WHEEL1_PIN, xSpeed, not WHEEL_REVERSE);
+    UpdateMotorSpeed(WHEEL1_PIN, xSpeed, not WHEEL_REVERSE);
   }
 
   if (moveDirection.y < 0) {
-    updateMotorSpeed(WHEEL1_PIN, ySpeed, not WHEEL_REVERSE);
-    updateMotorSpeed(WHEEL2_PIN, ySpeed, not WHEEL_REVERSE);
+    UpdateMotorSpeed(WHEEL1_PIN, ySpeed, not WHEEL_REVERSE);
+    UpdateMotorSpeed(WHEEL2_PIN, ySpeed, not WHEEL_REVERSE);
   }
 
   if (moveDirection.y > 0) {
-    updateMotorSpeed(WHEEL1_PIN, ySpeed, WHEEL_REVERSE);
-    updateMotorSpeed(WHEEL2_PIN, ySpeed, WHEEL_REVERSE);
+    UpdateMotorSpeed(WHEEL1_PIN, ySpeed, WHEEL_REVERSE);
+    UpdateMotorSpeed(WHEEL2_PIN, ySpeed, WHEEL_REVERSE);
+  }
+}
+
+static void ElevationHandler() {
+  if (elevating) {
+    UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
+    UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
+  } else if (lowering) {
+    UpdateMotorSpeed(PULLEY1_PIN, 100, PULLEY_REVERSE);
+    UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
   }
 }
 
@@ -70,14 +80,17 @@ void motorSetup() {
   ledcAttach(PULLEY1_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
   ledcAttach(PULLEY2_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
 
-  updateMotorSpeed(WHEEL1_PIN, 0, 0);
-  updateMotorSpeed(WHEEL2_PIN, 0, 0);
-  updateMotorSpeed(PULLEY1_PIN, 0, 0);
-  updateMotorSpeed(PULLEY2_PIN, 0, 0);
+  UpdateMotorSpeed(WHEEL1_PIN, 0, 0);
+  UpdateMotorSpeed(WHEEL2_PIN, 0, 0);
+  UpdateMotorSpeed(PULLEY1_PIN, 0, 0);
+  UpdateMotorSpeed(PULLEY2_PIN, 0, 0);
   // updateMotor(WHEEL1_PIN, MOTOR_IDLE);
   // updateMotor(WHEEL2_PIN, MOTOR_IDLE);
   // updateMotor(PULLEY1_PIN, MOTOR_IDLE);
   // updateMotor(PULLEY2_PIN, MOTOR_IDLE);
 }
 
-void motorLoop() { wheelInputHandler(); }
+void motorLoop() {
+  MovementHandler();
+  ElevationHandler();
+}

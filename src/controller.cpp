@@ -6,44 +6,34 @@
 #include <PS2X_lib.h>;
 #include <cstdlib>
 
-unsigned long lastRun = 0;
+static unsigned long lastRun = 0;
 
-PS2X ps2x;
+static PS2X ps2x;
 
-// bool slow_mode = false;
+static void ButtonHoldInput() {
+  elevating = lowering = false;
 
-void controllerSetup() {
-  int error = -1;
-  while (error != 0) {
-    error = ps2x.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, true, true);
+  if (not ps2x.Button(PSB_CIRCLE) || not ps2x.Button(PSB_TRIANGLE)) {
+    if (ps2x.Button(PSB_CIRCLE)) {
+      Serial.println("Circle");
+      elevating = true;
+    }
+
+    if (ps2x.Button(PSB_TRIANGLE)) {
+      Serial.println("Triangle");
+      lowering = true;
+    }
   }
 }
 
-void controllerLoop() {
-  if (millis() - lastRun >= CONTROLLER_INTERVAL)
-    return;
-
-  lastRun = millis();
-
-  ps2x.read_gamepad(0, 0);
-
-  if (ps2x.ButtonPressed(PSB_CROSS)) {
-    Serial.println("Cross");
-  }
-
-  if (ps2x.ButtonPressed(PSB_CIRCLE)) {
-    Serial.println("Circle");
-  }
-
-  if (ps2x.ButtonPressed(PSB_TRIANGLE)) {
-    Serial.println("Triangle");
-  }
-
+static void ButtonPressInput() {
   if (ps2x.ButtonPressed(PSB_SQUARE)) {
     Serial.println("Square");
-    openingGate = false;
+    openingGate = not openingGate;
   }
+}
 
+static void JoystickInput() {
   int left_right = X_JOY_CENTER - ps2x.Analog(PSS_LX);
   int front_back = Y_JOY_CENTER - ps2x.Analog(PSS_RY);
 
@@ -77,6 +67,35 @@ void controllerLoop() {
       }
     }
   }
+}
+
+void controllerSetup() {
+  int error = -1;
+  while (error != 0) {
+    error = ps2x.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, true, true);
+  }
+}
+
+void controllerLoop() {
+  if (millis() - lastRun >= CONTROLLER_INTERVAL)
+    return;
+
+  lastRun = millis();
+
+  ps2x.read_gamepad(0, 0);
+
+  // PSB_CROSS
+  // PSB_CIRCLE
+  // PSB_TRIANGLE
+  // PSB_SQUARE
+
+  // if (ps2x.ButtonPressed(PSB_CROSS)) {
+  //   Serial.println("Cross");
+  // }
+
+  ButtonHoldInput();
+  ButtonPressInput();
+  JoystickInput();
 
   // if (left_right > JOY_THRESHOLD) {
   //   if (left_right < 0) {

@@ -5,12 +5,12 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
-unsigned long lastRun = 0;
+static unsigned long lastRun = 0;
 
-Servo servo;
+static Servo servo;
 
-bool servoqt = false;
-bool bamlt = false;
+// bool servoqt = false;
+// bool bamlt = false;
 
 void servoSetup() {
   servo.attach(SERVO_PIN);
@@ -21,7 +21,7 @@ void servoLoop() {
   if (millis() - lastRun >= SERVO_INTERVAL)
     return;
 
-  lastServoRun = millis();
+  lastRun = millis();
 
   if (openingGate) {
     // We are letting the balls fall out
