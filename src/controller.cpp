@@ -34,6 +34,7 @@ static void ButtonPressInput() {
 }
 
 static void JoystickInput() {
+  Serial.println("Reading joystick");
   int left_right = X_JOY_CENTER - ps2x.Analog(PSS_LX);
   int front_back = Y_JOY_CENTER - ps2x.Analog(PSS_RY);
 
@@ -77,7 +78,7 @@ void controllerSetup() {
 }
 
 void controllerLoop() {
-  if (millis() - lastRun >= CONTROLLER_INTERVAL)
+  if (millis() - lastRun <= CONTROLLER_INTERVAL)
     return;
 
   lastRun = millis();

@@ -26,20 +26,28 @@ static void MovementHandler() {
 
   if (moveDirection.x < 0) {
     UpdateMotorSpeed(WHEEL2_PIN, xSpeed, not WHEEL_REVERSE);
+
+    Serial.println("Strafing left");
   }
 
   if (moveDirection.x > 0) {
     UpdateMotorSpeed(WHEEL1_PIN, xSpeed, not WHEEL_REVERSE);
+
+    Serial.println("Strafing right");
   }
 
   if (moveDirection.y < 0) {
     UpdateMotorSpeed(WHEEL1_PIN, ySpeed, not WHEEL_REVERSE);
     UpdateMotorSpeed(WHEEL2_PIN, ySpeed, not WHEEL_REVERSE);
+
+    Serial.println("Moving forward");
   }
 
   if (moveDirection.y > 0) {
     UpdateMotorSpeed(WHEEL1_PIN, ySpeed, WHEEL_REVERSE);
     UpdateMotorSpeed(WHEEL2_PIN, ySpeed, WHEEL_REVERSE);
+
+    Serial.println("Moving backward");
   }
 }
 
@@ -47,6 +55,8 @@ static void ElevationHandler() {
   if (elevating) {
     UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
     UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
+
+    Serial.println("Moving backward");
   } else if (lowering) {
     UpdateMotorSpeed(PULLEY1_PIN, 100, PULLEY_REVERSE);
     UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);

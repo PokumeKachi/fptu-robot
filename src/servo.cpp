@@ -18,7 +18,7 @@ void servoSetup() {
 }
 
 void servoLoop() {
-  if (millis() - lastRun >= SERVO_INTERVAL)
+  if (millis() - lastRun <= SERVO_INTERVAL)
     return;
 
   lastRun = millis();
