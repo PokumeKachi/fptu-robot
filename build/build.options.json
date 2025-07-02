@@ -1,9 +1,0 @@
-{
-  "additionalFiles": "../..,../..,../..",
-  "compiler.optimization_flags": "-Os",
-  "customBuildProperties": "build.warn_data_percentage=75",
-  "fqbn": "esp32:esp32:esp32",
-  "hardwareFolders": "/home/kachi/.arduino15/packages",
-  "otherLibrariesFolders": "/home/kachi/Arduino/libraries,/home/kachi/Arduino/libraries",
-  "sketchLocation": "/home/kachi/projects/fptu/fptu-robot/src"
-}

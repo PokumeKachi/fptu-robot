@@ -1,17 +1,20 @@
-#include "motors.h"
-#include "PS2_controller.h"
-#include "servos.h"
+#include "motor.h"
+#include "controller.h"
+// #include "servo.h"
 
 void setup() {
   Serial.begin(115200);
+
   motorSetup();
-  servoSetup();
-  PS2Setup();
+  // servoSetup();
+  controllerSetup();
+
   Serial.println("DONE SETUP!");
 }
 
 void loop() {
-  ps2x.read_gamepad(0, 0);
-  PS2control();
+  motorLoop();
+  // servoLoop();
+  controllerLoop();
   // delay(50);
 }

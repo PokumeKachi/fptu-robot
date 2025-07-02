@@ -31,7 +31,6 @@ void servoSetup() {
   // }
 }
 void servoLoop() {
-  ps2x.read_gamepad();
   bool qthao = ps2x.Button(PSB_TRIANGLE);
   if (qthao && !bamlt) {
     servoqt = !servoqt;
