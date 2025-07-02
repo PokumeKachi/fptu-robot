@@ -54,12 +54,14 @@ static void MovementHandler() {
 static void ElevationHandler() {
   if (elevating) {
     UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
-    UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
+<<<<<<< HEAD
+    UpdateMotorSpeed(PULLEY2_PIN, 100, not PULLEY_REVERSE);
 
     Serial.println("Moving backward");
+>>>>>>> a2214add26cc2d2de8c93f598f01cedc2091633e
   } else if (lowering) {
     UpdateMotorSpeed(PULLEY1_PIN, 100, PULLEY_REVERSE);
-    UpdateMotorSpeed(PULLEY1_PIN, 100, not PULLEY_REVERSE);
+    UpdateMotorSpeed(PULLEY2_PIN, 100, PULLEY_REVERSE);
   }
 }
 

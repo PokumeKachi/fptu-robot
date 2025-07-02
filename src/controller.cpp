@@ -1,5 +1,4 @@
 #include "include/controller.hpp"
-
 #include "include/globals.hpp"
 
 #include <Arduino.h>
@@ -10,7 +9,7 @@ static unsigned long lastRun = 0;
 
 static PS2X ps2x;
 
-static void ButtonHoldInput() {
+void ButtonHoldInput() {
   elevating = lowering = false;
 
   if (not ps2x.Button(PSB_CIRCLE) || not ps2x.Button(PSB_TRIANGLE)) {
@@ -33,8 +32,10 @@ static void ButtonPressInput() {
   }
 }
 
+<<<<<<< HEAD
 static void JoystickInput() {
   Serial.println("Reading joystick");
+>>>>>>> a2214add26cc2d2de8c93f598f01cedc2091633e
   int left_right = X_JOY_CENTER - ps2x.Analog(PSS_LX);
   int front_back = Y_JOY_CENTER - ps2x.Analog(PSS_RY);
 
@@ -77,8 +78,10 @@ void controllerSetup() {
   }
 }
 
+<<<<<<< HEAD
 void controllerLoop() {
   if (millis() - lastRun <= CONTROLLER_INTERVAL)
+>>>>>>> a2214add26cc2d2de8c93f598f01cedc2091633e
     return;
 
   lastRun = millis();
@@ -100,7 +103,7 @@ void controllerLoop() {
 
   // if (left_right > JOY_THRESHOLD) {
   //   if (left_right < 0) {
-  //     // The joystick is being moved left
+  //     // The joystick is being movedQ left
   //
   //     updateMotorSpeed(WHEEL1_PIN, 0, false);
   //     updateMotorSpeed(WHEEL2_PIN, -left_right * 100 / X_JOY_CENTER,
