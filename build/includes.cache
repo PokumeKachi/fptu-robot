@@ -26,6 +26,11 @@
   },
   {
     "Sourcefile": "/home/kachi/projects/fptu/fptu-robot/build/sketch/src.ino.cpp",
+    "Include": "PS2X_lib.h",
+    "Includepath": "/home/kachi/Arduino/libraries/PS2X"
+  },
+  {
+    "Sourcefile": "/home/kachi/projects/fptu/fptu-robot/build/sketch/src.ino.cpp",
     "Include": "ESP32Servo.h",
     "Includepath": "/home/kachi/Arduino/libraries/ESP32Servo/src"
   },
@@ -66,6 +71,11 @@
   },
   {
     "Sourcefile": "/home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/libraries/Wire/src/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/kachi/Arduino/libraries/PS2X/PS2X_lib.cpp",
     "Include": "",
     "Includepath": null
   },

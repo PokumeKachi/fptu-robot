@@ -163,6 +163,7 @@
  /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32/esp32-hal-log.h \
  /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32/HardwareI2C.h \
  /home/kachi/projects/fptu/fptu-robot/build/sketch/PS2_controller.h \
+ /home/kachi/Arduino/libraries/PS2X/PS2X_lib.h \
  /home/kachi/projects/fptu/fptu-robot/build/sketch/servos.h \
  /home/kachi/Arduino/libraries/ESP32Servo/src/ESP32Servo.h \
  /home/kachi/Arduino/libraries/ESP32Servo/src/ESP32PWM.h \

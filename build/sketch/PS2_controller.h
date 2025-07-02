@@ -1,5 +1,5 @@
 #line 1 "/home/kachi/projects/fptu/fptu-robot/src/PS2_controller.h"
-include<PS2X_lib.h> PS2X ps2x;
+#include <PS2X_lib.h>;
 
 #define ll int
 

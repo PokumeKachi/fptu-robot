@@ -1,4 +1,4 @@
-include<PS2X_lib.h> PS2X ps2x;
+#include <PS2X_lib.h>;
 
 #define ll int
 
@@ -17,12 +17,13 @@ include<PS2X_lib.h> PS2X ps2x;
 #define TWO_HAND_DRIVING 1
 bool driving_mode = STINGLE_HAND_DRIVING;
 
-void setupPS2() {
+void PS2Setup() {
   ll err = -1;
   while (err != 0) {
     err = ps2x.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, true, true);
   }
 }
+
 bool PS2control() {
   ll speed = NORM_SPEED;
   if (ps2x.Button(PSB_R2))
