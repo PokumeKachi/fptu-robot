@@ -19,8 +19,9 @@ bool driving_mode = STINGLE_HAND_DRIVING;
 
 void setupPS2() {
   ll err = -1;
-  while (err != 0)
+  while (err != 0) {
     err = ps2x.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, true, true);
+  }
 }
 bool PS2control() {
   ll speed = NORM_SPEED;

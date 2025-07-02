@@ -156,12 +156,14 @@
  /home/kachi/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.4-2f7dcd86-v1/esp32/include/esp_hw_support/include/hal/cpu_ll.h \
  /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32/freertos_stats.h \
  /home/kachi/projects/fptu/fptu-robot/build/sketch/motors.h \
+ /home/kachi/Arduino/libraries/Adafruit_PWM_Servo_Driver_Library/Adafruit_PWMServoDriver.h \
+ /home/kachi/Arduino/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h \
  /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/libraries/Wire/src/Wire.h \
  /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32/esp32-hal.h \
  /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32/esp32-hal-log.h \
  /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32/HardwareI2C.h \
- /home/kachi/Arduino/libraries/Adafruit_PWM_Servo_Driver_Library/Adafruit_PWMServoDriver.h \
- /home/kachi/Arduino/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h \
  /home/kachi/projects/fptu/fptu-robot/build/sketch/PS2_controller.h \
- /home/kachi/Arduino/libraries/PS2X/PS2X_lib.h \
- /home/kachi/projects/fptu/fptu-robot/build/sketch/servos.h
+ /home/kachi/projects/fptu/fptu-robot/build/sketch/servos.h \
+ /home/kachi/Arduino/libraries/ESP32Servo/src/ESP32Servo.h \
+ /home/kachi/Arduino/libraries/ESP32Servo/src/ESP32PWM.h \
+ /home/kachi/.arduino15/packages/esp32/hardware/esp32/3.2.0/cores/esp32/esp32-hal-ledc.h

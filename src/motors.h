@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
+#include <Wire.h>
+#include <stdio.h>
 
 #define MIN_PWM 0
 #define MAX_PWM 4095
@@ -12,10 +12,9 @@
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
-void setPWMMotors(int c1, int c2, int c3, int c4)
-{
+void setPWMMotors(int c1, int c2, int c3, int c4) {
   char dbg_str[30];
-  sprintf(dbg_str,"C1: %d\tC2: %d\tC3: %d\tC4: %d",c1,c2,c3,c4);
+  sprintf(dbg_str, "C1: %d\tC2: %d\tC3: %d\tC4: %d", c1, c2, c3, c4);
   Serial.println(dbg_str);
 
   pwm.setPin(PWM_CHANNEL1, c1);
@@ -24,9 +23,8 @@ void setPWMMotors(int c1, int c2, int c3, int c4)
   pwm.setPin(PWM_CHANNEL4, c4);
 }
 
-void initMotors()
-{
-  Wire.begin(); 
+void initMotors() {
+  Wire.begin();
   pwm.begin();
   pwm.setOscillatorFrequency(27000000);
   pwm.setPWMFreq(1600);

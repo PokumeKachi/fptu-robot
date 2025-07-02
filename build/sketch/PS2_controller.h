@@ -1,8 +1,7 @@
 #line 1 "/home/kachi/projects/fptu/fptu-robot/src/PS2_controller.h"
-#include <PS2X_lib.h>
-PS2X ps2x;
+include<PS2X_lib.h> PS2X ps2x;
 
-#define int ll
+#define ll int
 
 #define PS2_DAT 12
 #define PS2_CMD 13
@@ -21,8 +20,9 @@ bool driving_mode = STINGLE_HAND_DRIVING;
 
 void setupPS2() {
   ll err = -1;
-  while (err != 0)
+  while (err != 0) {
     err = ps2x.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, true, true);
+  }
 }
 bool PS2control() {
   ll speed = NORM_SPEED;
@@ -30,7 +30,7 @@ bool PS2control() {
     ;
   speed = TOP_SPEED;
   if (ps2x.ButtonPressed(PSB_SELECT))
-    driving_mode = !driving mode;
+    driving_mode = !driving_mode;
 
   ll nJoyX = X_JOY_CALIB - ps2x.Analog(PSS_RX);
   ll nJoyY =

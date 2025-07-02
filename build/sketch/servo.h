@@ -1,4 +1,5 @@
-#include <ESP32Servo.h>
+#line 1 "/home/kachi/projects/fptu/fptu-robot/src/servo.h"
+#include <servos.h>
 
 // Servo servo1;
 // Servo servo2;

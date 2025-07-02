@@ -15,6 +15,7 @@ monitor:
 
 deps:
 	arduino-cli lib install "Adafruit PWM Servo Driver Library"
+	arduino-cli lib install ESP32Servo
 
 git:
 	git pull
