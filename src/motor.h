@@ -1,3 +1,6 @@
+
+#pragma once
+
 // #include <Adafruit_PWMServoDriver.h>
 // #include <Wire.h>
 // #include <stdio.h>
@@ -7,35 +10,46 @@ enum MotorState { MOTOR_IDLE, MOTOR_FORWARD, MOTOR_BACKWARD };
 #define ANALOG_FREQ 5000
 #define ANALOG_RESOLUTION 8
 
-#define MIN_PWM 0
-#define MAX_PWM 255
-
 #define WHEEL1_PIN 8
 #define WHEEL2_PIN 10
-
 #define PULLEY1_PIN 12
 #define PULLEY2_PIN 14
 
-void updateMotor(int motor_pin, enum MotorState state) {
-  switch (state) {
-  case MOTOR_IDLE:
-    ledcWrite(motor_pin, MIN_PWM);
+#define MIN_PWM 0
+#define MAX_PWM 255
+
+#define REVERSE true
+
+void updateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {
+  if (not reverse) {
+    ledcWrite(motor_pin, MAX_PWM / 100 * speedPercent);
     ledcWrite(motor_pin + 1, MIN_PWM);
-    break;
-  case MOTOR_FORWARD:
-    ledcWrite(motor_pin, MAX_PWM);
-    ledcWrite(motor_pin + 1, MIN_PWM);
-    break;
-  case MOTOR_BACKWARD:
+  } else {
     ledcWrite(motor_pin, MIN_PWM);
-    ledcWrite(motor_pin + 1, MAX_PWM);
-    break;
-  default:
-    Serial.println("Edge case of motor enum state handling detected! Please "
-                   "recheck your code!");
-    break;
+    ledcWrite(motor_pin + 1, MAX_PWM / 100 * speedPercent);
   }
 }
+
+// void updateMotor(int motor_pin, enum MotorState state) {
+//   switch (state) {
+//   case MOTOR_IDLE:
+//     ledcWrite(motor_pin, MIN_PWM);
+//     ledcWrite(motor_pin + 1, MIN_PWM);
+//     break;
+//   case MOTOR_FORWARD:
+//     ledcWrite(motor_pin, MAX_PWM);
+//     ledcWrite(motor_pin + 1, MIN_PWM);
+//     break;
+//   case MOTOR_BACKWARD:
+//     ledcWrite(motor_pin, MIN_PWM);
+//     ledcWrite(motor_pin + 1, MAX_PWM);
+//     break;
+//   default:
+//     Serial.println("Edge case of motor enum state handling detected! Please "
+//                    "recheck your code!");
+//     break;
+//   }
+// }
 
 void motorSetup() {
   ledcAttach(WHEEL1_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
@@ -43,10 +57,14 @@ void motorSetup() {
   ledcAttach(PULLEY1_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
   ledcAttach(PULLEY2_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
 
-  updateMotor(WHEEL1_PIN, MOTOR_IDLE);
-  updateMotor(WHEEL2_PIN, MOTOR_IDLE);
-  updateMotor(PULLEY1_PIN, MOTOR_IDLE);
-  updateMotor(PULLEY2_PIN, MOTOR_IDLE);
+  updateMotorSpeed(WHEEL1_PIN, 0, 0);
+  updateMotorSpeed(WHEEL2_PIN, 0, 0);
+  updateMotorSpeed(PULLEY1_PIN, 0, 0);
+  updateMotorSpeed(PULLEY2_PIN, 0, 0);
+  // updateMotor(WHEEL1_PIN, MOTOR_IDLE);
+  // updateMotor(WHEEL2_PIN, MOTOR_IDLE);
+  // updateMotor(PULLEY1_PIN, MOTOR_IDLE);
+  // updateMotor(PULLEY2_PIN, MOTOR_IDLE);
 }
 
 void motorLoop() {}

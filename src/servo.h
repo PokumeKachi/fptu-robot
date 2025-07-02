@@ -1,3 +1,5 @@
+#pragma once
+
 #include <ESP32Servo.h>
 
 Servo servo1;

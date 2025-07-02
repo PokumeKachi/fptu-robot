@@ -1,14 +1,19 @@
+#pragma once
+
 #include <PS2X_lib.h>;
+#include <motor.h>
 
 PS2X ps2x;
+
+#define JOY_THRESHOLD 10
 
 #define PS2_DAT 12
 #define PS2_CMD 13
 #define PS2_CLK 14
 #define PS2_SEL 15
 
-#define X_JOY_CALIB 127
-#define Y_JOY_CALIB 128
+#define X_JOY_CENTER 127
+#define Y_JOY_CENTER 128
 
 // #define STINGLE_HAND_DRIVING 0
 // #define TWO_HAND_DRIVING 1
@@ -24,20 +29,54 @@ void controllerSetup() {
 
 void controllerLoop() {
   ps2x.read_gamepad(0, 0);
-  if (ps2x.Button(PSB_CROSS)) {
+
+  if (ps2x.ButtonPressed(PSB_CROSS)) {
     Serial.println("Cross");
   }
 
-  if (ps2x.Button(PSB_CIRCLE)) {
+  if (ps2x.ButtonPressed(PSB_CIRCLE)) {
     Serial.println("Circle");
   }
 
-  if (ps2x.Button(PSB_TRIANGLE)) {
+  if (ps2x.ButtonPressed(PSB_TRIANGLE)) {
     Serial.println("Triangle");
   }
 
-  if (ps2x.Button(PSB_SQUARE)) {
+  if (ps2x.ButtonPressed(PSB_SQUARE)) {
     Serial.println("Square");
+  }
+
+  int left_right = X_JOY_CENTER - ps2x.Analog(PSS_LX);
+  int front_back = Y_JOY_CENTER - ps2x.Analog(PSS_RY);
+
+  if (left_right > JOY_THRESHOLD) {
+    if (left_right < 0) {
+      // The joystick is being moved left
+
+      updateMotorSpeed(WHEEL1_PIN, 0, false);
+      updateMotorSpeed(WHEEL2_PIN, -left_right * 100 / X_JOY_CENTER,
+                       not REVERSE);
+    } else {
+      // The joystick is being moved right
+
+      updateMotorSpeed(WHEEL1_PIN, left_right * 100 / X_JOY_CENTER,
+                       not REVERSE);
+      updateMotorSpeed(WHEEL2_PIN, 0, false);
+    }
+  } else {
+    if (front_back > JOY_THRESHOLD) {
+      if (front_back < 0) {
+        // The joystick is being moved up
+        updateMotorSpeed(WHEEL1_PIN, -front_back * 100 / Y_JOY_CENTER,
+                         not REVERSE);
+        updateMotorSpeed(WHEEL2_PIN, -front_back * 100 / Y_JOY_CENTER,
+                         not REVERSE);
+      } else {
+        // The joystick is being moved down
+        updateMotorSpeed(WHEEL1_PIN, front_back * 100 / Y_JOY_CENTER, REVERSE);
+        updateMotorSpeed(WHEEL1_PIN, front_back * 100 / Y_JOY_CENTER, REVERSE);
+      }
+    }
   }
 }
 
