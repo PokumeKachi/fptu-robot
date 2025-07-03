@@ -1,6 +1,7 @@
 #include "include/motor.hpp"
 #include "include/servo.hpp"
 #include "include/controller.hpp"
+#include "include/globals.hpp"
 // #include "def.h"
 
 void setup()
