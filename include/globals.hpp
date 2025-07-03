@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Adafruit_PWMServoDriver.h>
+#include <Wire.h>
 
 struct Vec2 {
   int x;
