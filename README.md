@@ -21,7 +21,7 @@ fptu-robot
 
   ├── globals.hpp
 
-  -     File đựng các biến toàn cục sử dụng bởi mọi file (các trạng thái của robot, đang chạy hay đang thả bóng,...) kèm theo các thông số như số thứ tự chân IO, tốc độ Analog PWM, ...
+  - File đựng các biến toàn cục sử dụng bởi mọi file (các trạng thái của robot, đang chạy hay đang thả bóng,...) kèm theo các thông số như số thứ tự chân IO, tốc độ Analog PWM, ...
 
   ├── \*.hpp
 
@@ -29,26 +29,26 @@ fptu-robot
 
 └── src
 
--     (source code) Mã nguồn
+- (source code) Mã nguồn
 
   ├── globals.cpp
 
-  -     File khai báo của header biến toàn cục, thông số trên
+  - File khai báo của header biến toàn cục, thông số trên
 
   ├── controller.cpp
 
-  -     File đựng logic của tay cầm PS2 (điều khiển và thay đổi các giá trị của các biến toàn cục)
+  - File đựng logic của tay cầm PS2 (điều khiển và thay đổi các giá trị của các biến toàn cục)
 
   - Các file dưới quyết định trạng thái của các bộ phận của robot dựa vào giá trị của mỗi biến toàn cục
 
   ├── motor.cpp
 
-  -     File đựng logic của motor (bánh xe lăn và trục kéo ròng rọc)
+  - File đựng logic của motor (bánh xe lăn và trục kéo ròng rọc)
 
   ├── servo.cpp
 
-  -     File đựng logic của  servo (thanh chắn bóng)
+  - File đựng logic của servo (thanh chắn bóng)
 
 └── fptu-robot.ino
 
--     File code chính của Arduino
+- File code chính của Arduino
