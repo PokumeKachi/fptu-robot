@@ -2,7 +2,7 @@
 #include "include/globals.hpp"
 
 #include <Arduino.h>
-#include <PS2X_lib.h>;
+#include <PS2X_lib.h>
 #include <cstdlib>
 
 static unsigned long lastRun = 0;
@@ -12,9 +12,9 @@ static PS2X ps2x;
 void ButtonHoldInput() {
   elevating = lowering = false;
 
-  if (not ps2x.Button(PSB_CIRCLE) || not ps2x.Button(PSB_TRIANGLE)) {
-    if (ps2x.Button(PSB_CIRCLE)) {
-      Serial.println("Circle");
+  if (ps2x.Button(PSB_SQUARE) ^ ps2x.Button(PSB_TRIANGLE)) {
+    if (ps2x.Button(PSB_SQUARE)) {
+      Serial.println("Square");
       elevating = true;
     }
 
@@ -26,8 +26,8 @@ void ButtonHoldInput() {
 }
 
 static void ButtonPressInput() {
-  if (ps2x.ButtonPressed(PSB_SQUARE)) {
-    Serial.println("Square");
+  if (ps2x.ButtonPressed(PSB_CIRCLE)) {
+    Serial.println("Circle");
     openingGate = not openingGate;
   }
 }
