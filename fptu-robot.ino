@@ -4,7 +4,9 @@
 // #include "def.h"
 
 void setup()
-{
+  pwm.begin();
+  pwm.setPWMFreq(50);
+
   Serial.begin(115200);
 
   Serial.println("Start SETUP!");
