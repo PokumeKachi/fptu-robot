@@ -4,7 +4,7 @@
 #include "include/globals.hpp"
 // #include "def.h"
 
-void setup()
+void setup() {
   pwm.begin();
   pwm.setPWMFreq(50);
 
