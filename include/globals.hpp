@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Adafruit_PWMServoDriver.h>
+
 struct Vec2 {
   int x;
   int y;
@@ -11,6 +13,7 @@ extern bool openingGate;
 extern bool elevating;
 extern bool lowering;
 extern struct Vec2 moveDirection;
+extern Adafruit_PWMServoDriver pwm;
 
 // Cac hang so co the chinh sua:
 

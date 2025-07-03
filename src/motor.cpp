@@ -9,11 +9,15 @@
 
 static void UpdateMotorSpeed(int motor_pin, int speedPercent, bool reverse) {
   if (not reverse) {
-    ledcWrite(motor_pin, MAX_PWM / 100 * speedPercent);
-    ledcWrite(motor_pin + 1, MIN_PWM);
+    // ledcWrite(motor_pin, MAX_PWM / 100 * speedPercent);
+    // ledcWrite(motor_pin + 1, MIN_PWM);
+    pwm.setPin(motor_pin, MAX_PWM / 100 * speedPercent);
+    pwm.setPin(motor_pin + 1, MIN_PWM);
   } else {
-    ledcWrite(motor_pin, MIN_PWM);
-    ledcWrite(motor_pin + 1, MAX_PWM / 100 * speedPercent);
+    // ledcWrite(motor_pin, MIN_PWM);
+    // ledcWrite(motor_pin + 1, MAX_PWM / 100 * speedPercent);
+    pwm.setPin(motor_pin, MIN_PWM);
+    pwm.setPin(motor_pin + 1, MAX_PWM / 100 * speedPercent);
   }
 }
 
@@ -87,10 +91,10 @@ static void ElevationHandler() {
 // }
 
 void motorSetup() {
-  ledcAttach(WHEEL1_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
-  ledcAttach(WHEEL2_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
-  ledcAttach(PULLEY1_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
-  ledcAttach(PULLEY2_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
+  // ledcAttach(WHEEL1_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
+  // ledcAttach(WHEEL2_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
+  // ledcAttach(PULLEY1_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
+  // ledcAttach(PULLEY2_PIN, ANALOG_FREQ, ANALOG_RESOLUTION);
 
   UpdateMotorSpeed(WHEEL1_PIN, 0, 0);
   UpdateMotorSpeed(WHEEL2_PIN, 0, 0);
