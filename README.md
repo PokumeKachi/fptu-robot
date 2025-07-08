@@ -1,3 +1,9 @@
+Before you proceed, this project was an absolute dumpster fire.
+It was a failure.
+Yet I had the most fun I have ever felt in a while working on this.
+
+# Perhaps the real FPTU AI & Robotics Challenge 2025 were the friends we made along the way.
+
 > Project overview
 
 ```
