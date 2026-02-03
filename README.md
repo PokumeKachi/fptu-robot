@@ -4,7 +4,10 @@ Yet I had the most fun I have ever felt in a while working on this.
 
 # Perhaps the real FPTU AI & Robotics Challenge 2025 were the friends we made along the way.
 
-> Project overview
+
+
+
+# Project overview
 
 ```
 fptu-robot
@@ -18,6 +21,10 @@ fptu-robot
 │   └── servo.cpp
 └── fptu-robot.ino
 ```
+
+# Dependencies
+
+- [The PS2 controller library.](https://github.com/makerviet/Arduino-PS2X-ESP32-Makerbot)
 
 # fptu-robot
 
